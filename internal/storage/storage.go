@@ -1,10 +1,15 @@
 package storage
 
+import "github.com/ShishVi/storage/internal/file"
+
 type Storage struct {
-	years int
-	name  string
 }
 
 func NewStorage() *Storage {
 	return &Storage{}
+}
+
+func (s *Storage) Upload(filename string, blob []byte) (*file.File, error) {
+	return file.NewFile(filename, blob)
+
 }
